@@ -7,7 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 //   url = 'mongodb://localhost:27017/listmera';
 // }
 
-const url = `${process.env.MONGODB_URI}/listmera`;
+const url = process.env.MONGODB_URI;
 
 function database() {
   return new Promise((resolve, reject) => {
