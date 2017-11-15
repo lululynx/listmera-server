@@ -1,5 +1,4 @@
-const client
-const redis
+let client;
 if (process.env.REDIS_URL) {
   client = require('redis').createClient(process.env.REDIS_URL);
 } else {
