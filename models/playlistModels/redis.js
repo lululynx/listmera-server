@@ -1,8 +1,5 @@
-if (process.env.REDISTOGO_URL) {
-  const rtg = require("url").parse(process.env.REDISTOGO_URL);
-  const redis = require("redis")
-  const client = redis.createClient(rtg.port, rtg.hostname);
-  redis.auth(rtg.auth.split(":")[1]);
+if (process.env.REDIS_URL) {
+  const client = require('redis').createClient(process.env.REDIS_URL);
 } else {
   const redis = require('redis');
   const client = redis.createClient();
