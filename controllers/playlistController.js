@@ -65,6 +65,7 @@ module.exports = {
     const playlist = await get(ctx.params.id);
     const copy = JSON.parse(ctx.request.body).copy
     if (user.length && user[0].username === playlist.adminId) {
+      console.log('test');
       await generate(playlist, user[0].refresh, ctx.params.id)
       ctx.status = 201;
     } else if (!playlist.adminId) {
