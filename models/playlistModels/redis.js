@@ -1,8 +1,9 @@
+const client
+const redis
 if (process.env.REDIS_URL) {
-  const client = require('redis').createClient(process.env.REDIS_URL);
+  client = require('redis').createClient(process.env.REDIS_URL);
 } else {
-  const redis = require('redis');
-  const client = redis.createClient();
+  client = require('redis').createClient();
 }
 
 client.on('error', err => {
