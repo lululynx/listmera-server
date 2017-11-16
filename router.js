@@ -19,5 +19,6 @@ router.get('/api/playlists/recent', playlistController.recent);
 
 // user methods
 router.get('/api/me', userController.get);
+router.put('/api/me', userController.modify);
 
 module.exports = router;
