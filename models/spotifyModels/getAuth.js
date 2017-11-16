@@ -23,7 +23,7 @@ async function spotifyRegister(code) {
       else newUser.picture = undefined;
       newUser.email = res.body.email;
       newUser.username = res.body.id;
-      newUser.name = res.body.display_name;
+      newUser.name = res.body.display_name ? res.body.display_name : 'Anonymous';
     }).catch(e => console.error(e));
   if (flag) return login(newUser);
   else {

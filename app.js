@@ -6,8 +6,12 @@ const bodyParser = require("koa-body-parser");
 const cors = require('koa-cors');
 require('dotenv').config();
 
+const options = {
+  origin: 'http://listmera.com',
+}
+
 app.use(bodyParser())
-  .use(cors())
+  .use(cors(options))
   .use(router.routes())
   .use(router.allowedMethods())
 
