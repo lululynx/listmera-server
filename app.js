@@ -7,7 +7,7 @@ const cors = require('koa-cors');
 require('dotenv').config();
 
 const options = {
-  origin: 'http://listmera.com',
+  origin: 'http://listmera.rocks',
 }
 
 app.use(bodyParser())
