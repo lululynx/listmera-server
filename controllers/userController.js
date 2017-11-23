@@ -1,7 +1,7 @@
 const engine = require('../engine/engine.js');
 
 const locate = require('../models/userModels/findUser.js');
-const setAsManager = require('../models/userModels/userPlaylistModel.js');
+// const setAsManager = require('../models/userModels/userPlaylistModel.js');
 const modify = require('../models/userModels/modifyUser.js');
 
 const display = require('../models/playlistModels/getDisplayPlaylist.js');
@@ -23,5 +23,9 @@ module.exports = {
     const username = object.username;
     delete object.username;
     ctx.status = await modify(username, object);
+  },
+  refresh: async function (ctx) {
+    const object = JSON.parse(ctx.request.body);
+    const username = object.username;
   }
 };

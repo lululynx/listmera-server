@@ -1,24 +1,26 @@
 const Router = require('koa-router');
 const router = new Router();
 
-const spotifyController = require('./controllers/spotifyController.js');
-const playlistController = require('./controllers/playlistController.js');
-const userController = require('./controllers/userController.js');
+const spotify = require('./controllers/spotifyController.js');
+const playlists = require('./controllers/playlistController.js');
+const user = require('./controllers/userController.js');
 
 // sign-up/log-in methods
-router.get('/api/access', spotifyController.auth);
-router.post('/api/register', spotifyController.register);
+router.get('/api/access', spotify.auth);
+router.post('/api/register', spotify.register);
 
 // playlist methods
-router.post('/api/playlist', playlistController.create);
-router.get('/api/playlist/:id', playlistController.get);
-router.put('/api/playlist/:id', playlistController.collab);
-router.post('/api/playlist/:id', playlistController.generate);
-router.delete('/api/playlist/:id', playlistController.delete);
-router.get('/api/playlists/recent', playlistController.recent);
+router.post('/api/playlist', playlists.create);
+router.get('/api/playlist/:id', playlists.get);
+router.put('/api/playlist/:id', playlists.collab);
+router.post('/api/playlist/:id', playlists.generate);
+router.delete('/api/playlist/:id', playlists.delete);
+router.get('/api/playlists/recent', playlists.recent);
 
 // user methods
-router.get('/api/me', userController.get);
-router.put('/api/me', userController.modify);
+router.get('/api/me', user.get);
+router.put('/api/me', user.modify);
+//PENDING REFRESH ROUTE!
+router.get('/api/me/refresh', user.refresh);
 
 module.exports = router;

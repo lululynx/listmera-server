@@ -7,12 +7,12 @@ function cleanDb(db) {
   return new Promise ((resolve, reject) => {
     db.collection('tracks').aggregate([
       { $group: {
-        _id: { id: "$id"},
-        dups: { "$addToSet": "$_id" },
-        count: { "$sum": 1 }
+        _id: { id: '$id'},
+        dups: { '$addToSet': '$_id' },
+        count: { '$sum': 1 }
       }},
       { $match: { 
-        count: { "$gt": 1 }
+        count: { '$gt': 1 }
       }}
     ],
     {allowDiskUse: true}
