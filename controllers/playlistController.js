@@ -83,6 +83,7 @@ module.exports = {
         bank: playlist.bank,
         tracks: playlist.trackId
       });
+      ctx.set('Con-Type', 'text/html');
       ctx.status = await removeAdmin({
         username: user[0].username,
         id: ctx.params.id
