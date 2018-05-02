@@ -39,7 +39,8 @@ module.exports = {
       tracks : trackList,
     }, parsed);
     ctx.status = await setAsManager({id: newPlaylist, username: req.username})
-    ctx.response.body = {id : newPlaylist};
+    const content = await display(newPlaylist)
+    ctx.response.body = {content};
   },
   get: async function (ctx) {
     const content = await display(ctx.params.id)

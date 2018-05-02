@@ -9,6 +9,7 @@ async function getPlaylist(id, simple) {
     client.hgetall(`playlist:${id}`, async (err, details) => {
       if (err) reject(err);
       if (!details) resolve(null);
+      console.log('HEEEERE YA GO!', details)
       playlist.adminId = details.admin;
       const user = await locate(playlist.adminId);
       playlist.admin = user[0].name;
@@ -38,7 +39,7 @@ async function getPlaylist(id, simple) {
               {image: el.image, popularity: el.popularity}
             ];
             return acc.sort((a,b) => b.popularity - a.popularity);
-          } else return acc;  
+          } else return acc;
         }, []).map(el => el.image) : undefined;
         client.smembers(`collabs:${details.collabs}`, async (err, users) => {
           if (err) reject(err);
